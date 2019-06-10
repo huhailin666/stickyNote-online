@@ -20,11 +20,10 @@ passport.deserializeUser(function(obj, done) {   //解析session
 passport.use(new GitHubStrategy({     
     clientID: 'a152e7c20469c9221197',
     clientSecret: '1a5423ba575488e3bac916d97aabde3adaeab4c5',
-    callbackURL: "http://47.91.156.35:3856/auth/github/callback" 
+    callbackURL: "http://sticky.haline.top/auth/github/callback" 
   },
   function(accessToken, refreshToken, profile, done) {
-    // User.findOrCreate({ githubId: profile.id }, function (err, user) {
-    // });
+
     done(null, profile);
   }
 ));

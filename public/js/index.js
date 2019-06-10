@@ -5795,6 +5795,9 @@ exports.default = {
         return;
       }
       var text = el.target.innerText;
+      if (text == this.text) {
+        return;
+      }
       this.lists.forEach(function (e) {
         if (e.id == id) {
           _this5.$set(e, "text", text);
@@ -5805,7 +5808,7 @@ exports.default = {
         note: text
       }).done(function (ret) {
         if (ret.status === 0) {
-          Toast("更新成功");
+          Toast("修改成功");
         } else {
           Toast("更新失败");
         }
@@ -5860,35 +5863,8 @@ exports.default = {
       isAdd: false,
       select: 0,
       user: '',
-      lists: [{
-        id: 1,
-        name: "xiaoyu",
-        text: "我爱小海",
-        isFinish: false,
-        createdAt: "2019-05-5",
-        level: 3
-      }, {
-        id: 2,
-        name: "xiaoyu",
-        text: "我爱小海",
-        isFinish: false,
-        createdAt: "2019-05-5",
-        level: 2
-      }, {
-        id: 3,
-        name: "xiaoyu",
-        text: "我爱小海",
-        isFinish: true,
-        createdAt: "2019-05-5",
-        level: 1
-      }, {
-        id: 4,
-        name: "xiaoyu",
-        text: "我爱小海",
-        isFinish: false,
-        createdAt: "2019-05-5",
-        level: 2
-      }]
+      text: '',
+      lists: []
     };
   }
 };
@@ -41946,7 +41922,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".toast {\r\n  position     : fixed;\r\n  left         : 50%;\r\n  transform    : translateX(-50%);\r\n  bottom       : 30%;\r\n  color        : #D15A39;\r\n  background   : #eee;\r\n  padding      : 8px 40px;\r\n  box-shadow   : 10px 9px 17px 1px rgba(0, 0, 0, 0.75);\r\n  display      : none;\r\n  font-size    : 30px;\r\n  border-radius: 40px;\r\n  border       : 2px solid green;\r\n}", ""]);
+exports.push([module.i, ".toast {\r\n  position     : fixed;\r\n  left         : 50%;\r\n  transform    : translateX(-50%);\r\n  bottom       : 30%;\r\n  color        : #D15A39;\r\n  background   : #eee;\r\n  padding      : 8px 30px;\r\n  box-shadow: 2px 2px 6px 3px rgba(222,102,102,0.75);\r\n  display      : none;\r\n  font-size    : 20px;\r\n  border-radius: 20px;\r\n  border       : 1x solid green;\r\n}", ""]);
 
 // exports
 
@@ -42565,6 +42541,9 @@ var render = function() {
                   on: {
                     blur: function($event) {
                       return _vm.update($event, item.id)
+                    },
+                    click: function($event) {
+                      _vm.text = $event.target.innerText
                     }
                   }
                 },
