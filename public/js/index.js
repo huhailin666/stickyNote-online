@@ -5790,12 +5790,12 @@ exports.default = {
     update: function update(el, id) {
       var _this5 = this;
 
-      if (!this.isLogin) {
-        Toast("请先登录");
-        return;
-      }
       var text = el.target.innerText;
       if (text == this.text) {
+        return;
+      }
+      if (!this.isLogin) {
+        Toast("请先登录");
         return;
       }
       this.lists.forEach(function (e) {
